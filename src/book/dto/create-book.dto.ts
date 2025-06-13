@@ -1,8 +1,8 @@
-import { ApiProperty } from '@nestjs/swagger'; // Importa ApiProperty
-import { IsString, IsNotEmpty } from 'class-validator'; // Agrega IsNotEmpty
+import { ApiProperty } from '@nestjs/swagger'; 
+import { IsString, IsNotEmpty } from 'class-validator'; 
 
 export class CreateBookDto {
-  @ApiProperty({ description: 'Título del libro', example: 'ARRY POTTER Y LA PIEDRA FILOSOFAL' })
+  @ApiProperty({ description: 'Título del libro', example: 'HARRY POTTER Y LA PIEDRA FILOSOFAL' })
   @IsString()
   @IsNotEmpty()
   title: string;

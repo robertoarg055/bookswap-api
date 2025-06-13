@@ -6,11 +6,11 @@ import { ValidationPipe } from '@nestjs/common'; // Importa ValidationPipe
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Habilitar la validación global de DTOs
+ 
   app.useGlobalPipes(new ValidationPipe({
-    whitelist: true, // Elimina propiedades que no están definidas en el DTO
-    forbidNonWhitelisted: true, // Lanza un error si hay propiedades no definidas
-    transform: true, // Transforma los tipos de datos según el DTO
+    whitelist: true, 
+    forbidNonWhitelisted: true, 
+    transform: true, 
   }));
 
   const config = new DocumentBuilder()
@@ -24,7 +24,7 @@ async function bootstrap() {
       name: 'JWT',
       description: 'Ingresa tu token JWT',
       in: 'header',
-    }, 'JWT-auth') // El nombre 'JWT-auth' se usará en @ApiBearerAuth()
+    }, 'JWT-auth') 
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);

@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { User } from '../../user/user.entity/user.entity'; // Adjust the import path as necessary
+import { User } from '../../user/user.entity/user.entity'; 
 @Entity()
 export class Book {
   @PrimaryGeneratedColumn()

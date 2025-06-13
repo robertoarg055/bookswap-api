@@ -10,14 +10,14 @@ export class BookService {
   constructor(
     @InjectRepository(Book)
     private bookRepository: Repository<Book>,
-    @InjectRepository(User) // Inyecta también el User Repository
+    @InjectRepository(User) 
     private userRepository: Repository<User>,
   ) {}
 
   async create(createBookDto: CreateBookDto, ownerId: number): Promise<Book> {
-    const owner = await this.userRepository.findOneBy({ id: ownerId }); // Busca el usuario por ID
+    const owner = await this.userRepository.findOneBy({ id: ownerId }); 
     if (!owner) {
-      // Manejar el caso si el usuario no existe (aunque con AuthGuard debería siempre existir)
+    
       throw new Error('Owner not found');
     }
     const book = this.bookRepository.create({ ...createBookDto, owner });
@@ -25,6 +25,6 @@ export class BookService {
   }
 
   async findAll(): Promise<Book[]> {
-    return this.bookRepository.find({ relations: ['owner'] }); // Para el public controller
+    return this.bookRepository.find({ relations: ['owner'] });
   }
 }

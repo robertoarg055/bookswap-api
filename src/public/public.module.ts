@@ -6,6 +6,6 @@ import { Book } from '../book/book.enity/book.entity'; // Importa la entidad Boo
 @Module({
   imports: [TypeOrmModule.forFeature([Book])],
   controllers: [PublicController],
-  providers: [], // No necesitas servicios aquí si solo vas a usar el repositorio directo
+  providers: [], 
 })
 export class PublicModule {}

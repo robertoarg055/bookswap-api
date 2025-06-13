@@ -11,15 +11,15 @@ export class PublicController {
 
   @Get('books')
   async findAll() {
-    // Retorna todos los libros con su respectivo dueño (solo nombre del usuario)
+   
     return this.bookRepository.find({
-      relations: ['owner'], // Carga la relación 'owner'
-      select: { // Selecciona solo los campos necesarios del libro
+      relations: ['owner'], 
+      select: { 
         id: true,
         title: true,
         author: true,
         description: true,
-        owner: { // Selecciona solo el nombre del dueño
+        owner: { 
           name: true,
         },
       },
